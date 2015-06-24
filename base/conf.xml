@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<conf>
+  <db>1</db>
+  <host>2</host>
+  <port>3</port>
+  <user>4</user>
+  <pass>5</pass>
+</conf>
