@@ -1,56 +1,56 @@
 body{
-    background: black;
+    background: #E2D893;
     color:white;
     margin:0;
     padding: 0;
     font-family: 'Lato', sans-serif;
 }
+/* palette
+    castanho 2B2301
+    bege E2D893
+    bege "cinza" A79E65
+    azul claro 73AFB6
+    azul escuro 5F9DA1 */
 
 header{  
-    background: darkred;
+    background: #5F9DA1;
     margin:auto;
-
 }
 
 #logo{
     float:left;
-    margin:auto; 
 }
-#head{background: darkred;
-      margin:auto;
-    float:left;
+
+#stuff{
+    padding:auto;
+    height:100px;
 }
 
 
 #content{
-    clear:both;
-    float: left;
-    background: red;
-    margin: auto;
+    background: #A79E65;
+    p: 10px;
 }
 
 nav {
     clear:both;
     float:left;
     width: 160px;
-
-    background: darkblue;
+    background: #5F9DA1;
     text-align: center;
 }
 nav ul{
-    
     list-style: none;
     margin:auto;
     padding:0;
 }
 
 nav ul li{
-    border:1px solid #eee;
     padding: 5px;
 }
 
-nav ul :hover{
-    background: yellow;
+nav ul li:hover{
+    background: #73AFB6;
     color:black;
 }
 

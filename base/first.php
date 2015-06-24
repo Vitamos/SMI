@@ -26,7 +26,7 @@
             DB: <input type="text" name="db"><br/>
             Host: <input type="text" name="host"><br/>
             Port: <input type="text" name="port"><br/>
-            User: <input type="text" name="user"><br/>
+            Username: <input type="text" name="user"><br/>
             Password: <input type="text" name="pass"><br/>
             <input type="submit">
         </form>
