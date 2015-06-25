@@ -31,7 +31,7 @@ function getId($user){
 
 function getPerms($user){
     //TO-DO
-    return 10;
+    return 0;
 }
 
 

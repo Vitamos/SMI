@@ -4,6 +4,7 @@ body{
     margin:0;
     padding: 0;
     font-family: 'Lato', sans-serif;
+    height:100%;
 }
 /* palette
     castanho 2B2301
@@ -28,11 +29,12 @@ header{
 
 
 #content{
-    background: #A79E65;
-    p: 10px;
+    background: #E2D893;
+    height:100%;
 }
 
 nav {
+    height:100%;
     clear:both;
     float:left;
     width: 160px;
