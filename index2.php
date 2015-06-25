@@ -2,7 +2,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="base/style.css">
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-        <script type="text/javascript" src="actions/scripts.js"></script>
+        <script type="text/javascript" src="base/scripts.js"></script>
         <meta charset="UTF-8">
         <title></title>
     </head>
@@ -17,29 +17,29 @@
             <img src="icon.png" alt="icon" id='logo'>
             <section id='stuff'>
                 <?php
-                include_once('menus/login.php');
+                include_once('auth/login.php');
                 ?>
             </section>
         </header>
         <nav>
             <ul>
-                <li><a onclick='showPage("content", "dois.php")'>Home</a></li>
-                <li><a onclick='showPage("content", "dois.php")'>Ver Anuncios</a></li>
+                <li><a onclick='showPage("content", "home.php")'>Home</a></li>
+                <li><a onclick='showPage("content", "user/getUsers.php")'>Ver Anuncios</a></li>
                 <?php
                 if (isset($_SESSION['perms'])) {
                     $permission = $_SESSION['perms'];
                     if ($permission <= 1) {
-                        echo("<li><a onclick = 'showPage('content', 'dois.php')'>Gerir Anuncios</a></li>");
+                        echo("<li><a onclick = 'showPage(\"content\", \"home.php\")'>Gerir Anuncios</a></li>");
                     }
                     if ($permission == 0) {
-                        echo("<li><a onclick = 'showPage('content'', 'menus/users.php'')'>Gerir Utilizadores</a></li>");
-                    }
+                        echo("<li><a onclick = 'showPage(\"content\", \"user/users.php\")'>Gerir Utilizadores</a></li>");
+                    } 
                 }
                 ?>
             </ul>
         </nav>
         <section id = 'content'>
-            asdfasdfasdfasdfasdfasdfsadfasdf
+            <?php include_once('home.php');?>
         </section>
  
     </body>

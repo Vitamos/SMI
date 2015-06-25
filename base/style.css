@@ -59,3 +59,15 @@ nav ul li:hover{
 footer {
     clear:both;
 }
+table{
+    background: #A79E65;
+     border-radius: 10px;
+     padding: 5px;
+     text-align: center;
+}
+
+table td {
+    background: #E2D893;
+    color: black;
+    padding: 5px;
+}

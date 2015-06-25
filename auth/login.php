@@ -27,7 +27,7 @@ if (!isset($_SESSION['user'])) {
 } else {
     echo 'Hello ' . $_SESSION['user'];
     echo('
-            <form method="post" action="logout.php">
+            <form method="post" action="auth/logout.php">
             <input type="submit" value="Logout"/>
         </form>');
 }
