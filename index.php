@@ -6,8 +6,8 @@
     <body>
         
         <?php
-        if (!file_exists('base/conf.xml')){
-            include('base/first.php');
+        if (!file_exists('conf.xml')){
+            include('first.php');
         }
         else{
             include('index2.php');

@@ -1,36 +1,37 @@
 body{
     background: #E2D893;
-    color:white;
+    color:black;
     margin:0;
     padding: 0;
     font-family: 'Lato', sans-serif;
     height:100%;
+    
 }
 /* palette
     castanho 2B2301
     bege E2D893
-    bege "cinza" A79E65
-    azul claro 73AFB6
+    bege escuro A79E65
+    azul  73AFB6
     azul escuro 5F9DA1 */
 
 header{  
     background: #5F9DA1;
     margin:auto;
-}
-
-#logo{
-    float:left;
-}
-
-#stuff{
     padding:auto;
     height:100px;
 }
 
+#logo{
+    float:left;
+    
+}
 
 #content{
     background: #E2D893;
-    height:100%;
+    margin-left: 160px;
+    padding-left:5px;
+    height: 100%;
+
 }
 
 nav {
@@ -53,21 +54,24 @@ nav ul li{
 
 nav ul li:hover{
     background: #73AFB6;
-    color:black;
+    color:white;
 }
 
 footer {
     clear:both;
 }
+
 table{
     background: #A79E65;
-     border-radius: 10px;
-     padding: 5px;
-     text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
 }
-
+table th{
+    padding :10px;
+}
 table td {
     background: #E2D893;
     color: black;
-    padding: 5px;
+    padding: 10px;
 }

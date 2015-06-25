@@ -12,7 +12,7 @@ function showPage(id, page) {
             document.getElementById(id).innerHTML = xmlhttp.responseText;
         }
     };
-    xmlhttp.open("POST", page, true);
+    xmlhttp.open("GET", page, true);
     xmlhttp.send();
 }
 
