@@ -8,7 +8,10 @@
                 <th>Telefone</th>
                 <th>Telemovel</th>
                 <th>Permissao</th>
-                <th>Eliminar</th>
+                <?php
+                if (isset($_SESSION['perms']) and $_SESSION['perms'] == 1) {
+                    ?>
+                    <th>Eliminar</th><?php } ?>
             </tr>
             <?php
             include_once ("db.php");
@@ -16,20 +19,20 @@
             $query = "SELECT * FROM users";
             $result = query($query);
             if ($result->num_rows > 0) {
-                // output data of each row
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     foreach ($fields as $field) {
                         echo "<td>" . $row[$field] . "</td>";
                     }
-                    echo "<td><button>x</button></td>";
+                    if (isset($_SESSION['perms']) and $_SESSION['perms'] == 1) {
+                        echo "<td><button>x</button></td>";
+                    }
                     echo "</tr>";
                 }
             } else {
-                echo "0 results";
+                echo "<tr>0 results</tr>";
             }
             ?>
-
         </table>
     </body>
 </html>

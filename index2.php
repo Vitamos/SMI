@@ -21,7 +21,7 @@
         <nav>
             <ul>
                 <li><a onclick='showPage("content", "home.php")'>Home</a></li>
-                <li><a onclick='showPage("content", "user_getUsers.php")'>Ver Anuncios</a></li>
+                <li><a onclick='showPage("content", "post_getPosts.php")'>Ver Anuncios</a></li>
                 <?php
                 if (isset($_SESSION['perms'])) {
                     $permission = $_SESSION['perms'];

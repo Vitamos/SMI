@@ -6,7 +6,7 @@
         <hr>
 
     <h3>Adicionar Utilizador</h3>
-    <?php include_once ("register.php"); ?>
+    <?php include_once ("user_register.php"); ?>
     <hr>
     <h3>Pesquisar Utilizador</h3>
     <hr>

@@ -1,38 +1,31 @@
 <?php
 
-header('Content-Type: text/html; charset=utf-8');
-
-$config = simplexml_load_file('conf.xml');
-$host = $config->host;
-$port = $config->port;
-$db = $config->db;
-$user = $config->user;
-$pass = $config->pass;
-
-
-
 function query($query) {
-    global $host;
-    global $user;
-    global $pass;
-    global $db;
+    $config = simplexml_load_file('conf.xml');
+    $host = $config->host;
+    $port = $config->port;
+    $db = $config->db;
+    $user = $config->user;
+    $pass = $config->pass;
     $connection = new mysqli($host, $user, $pass, $db);
     $result = $connection->query($query);
     $connection->close();
     return $result;
 }
 
-function login($user, $pass) {
-    //TO-DO
-    return true;
-}
-
-function getId($user) {
-    //TO-DO
-    return 10;
-}
-
-function getPerms($user) {
-    //TO-DO
-    return 0;
+function login($username, $password) {
+    $query = "SELECT * FROM users";
+    $result = query($query);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            if ($row['username'] == $username && $row['password'] == $password) {
+                $_SESSION['user'] = $username;
+                $_SESSION['id'] = $row['idUser'];
+                $_SESSION['perms'] = $row['permissao'];
+                session_write_close();
+                return true;
+            }
+        }
+    }
+    return false;
 }
