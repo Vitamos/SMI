@@ -1,4 +1,4 @@
-<form method="POST" target='_blank' action='post_addPost.php' onsubmit='showPage("result", "post_getPosts.php");
+<form method="POST" target='_blank' action='post_addPost.php' onsubmit='showPage("result", "post_getPosts.php")'';
         self.close();'>
     Titulo: <input type="text" name="titulo"><br/>
     Descricao: <input type="text" name="descricao"><br/>
@@ -11,6 +11,12 @@
     Longitude: <input type="text" name="longitude"><br/>
     <?php
     session_start();
+    include_once("db.php");
+    $result = query("SELECT * from categorias");
+    echo "Categorias: ";
+    while ($row = $result->fetch_assoc()) {
+        echo "<input type=\"checkbox\" name=\"cats[]\" value='" . $row['idCat'] . "'/>" . $row['nome'];
+    }
     ?>
     <input type='submit'>
 </form> 

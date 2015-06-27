@@ -3,10 +3,13 @@
         <meta charset="UTF-8">
     </head>
     <h1>Anuncios</h1>
-        <hr>
+    <hr>
     <h3>Adicionar Anuncio</h3>
     <?php include_once ("post_registerPost.php"); ?>
     <hr>
     <h3>Pesquisar Anuncio</h3>
-    <?php include_once ('post_getPosts.php'); ?>
+    <hr>
+    <h3>Ver Anuncios</h3>
+
+     <section id="result"> <?php include_once ('post_getPosts.php'); ?></section>
 </html>

@@ -4,14 +4,14 @@
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="scripts.js"></script>
         <meta charset="UTF-8">
-        <title></title>
+        <title>asdf</title>
     </head>
     <body> 
         <?php
         session_start();
         ?>
         <header>
-            <img src="icon.png" alt="icon" id='logo'>
+            <a href="index2.php"><img src="icon.png" alt="icon" id='logo'></a>
             <section id='stuff'>
                 <?php
                 include_once('login.php');

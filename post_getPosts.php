@@ -13,8 +13,8 @@
                 <th>Longitude</th>
                 <?php
                 if (isset($_SESSION['perms']) and $_SESSION['perms'] == 1) {
-                    ?>
-                    <th>Eliminar</th><?php } ?>
+                    echo "<th>Eliminar</th>";
+                     } ?>
             </tr>
             <?php
             include_once ("db.php");
@@ -24,12 +24,13 @@
             if ($result->num_rows > 0) {
                 // output data of each row
                 while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
+                 ?> <tr onclick='showPage("content", "post_getPost.php?idAnuncio=<?php echo $row['idAnuncio']; ?>")'> <?php
+                   //echo "<tr>";
                     foreach ($fields as $field) {
-                        echo "<td>" . $row[$field] . "</td>";
+                           echo "<td>" .  $row[$field]  ."</td>"; 
                     }
                     if (isset($_SESSION['perms']) and $_SESSION['perms'] == 1) {
-                        echo "<td><button>x</button></td>";
+                        echo "<td><button >x</button></td>";
                     }
                     echo "</tr>";
                 }

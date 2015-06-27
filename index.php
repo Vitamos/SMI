@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>imoISEL - SMI 2015</title>
     </head>
     <body>
         

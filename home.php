@@ -1,8 +1,2 @@
-<?php
-echo("welcome home");
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+<h1>Bem vindo ao imoISEL</h1>
+<h3>Encontre aqui a sua casa de sonho e o 20 no trabalho de SMI! </h3>
