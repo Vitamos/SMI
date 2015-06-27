@@ -1,8 +1,18 @@
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+<html>
+    <body>
+        <section id="content">
+            <?php
+            session_start();
+            include_once("db.php");
+            $query = "INSERT INTO anuncios" . " VALUES (NULL,'" . $_POST['titulo'] . "','" . $_POST['descricao'] . "','" . $_POST['preco'] .
+                    "','" . $_POST['assoalhadas'] . "','" . $_POST['concelho'] . "','" . $_POST['distrito'] . "','" . $_POST['freguesia'] . "','" . $_POST['latitude'] . "','" . $_POST['longitude'] . "','" . str_replace(' ', '', $_POST['titulo']) . "','" . $_SESSION['id'] . "');";
+            if (!query($query)) {
+                echo "fail";
+                echo $query;
+            } else {
+                echo("Adicionado com sucesso!<br/>");
+            }
+            ?>
+            <input type = "button" value = "Fechar" onClick = "self.close()"> </section>
+    </body>
+</html>

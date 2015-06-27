@@ -11,7 +11,6 @@
                 <th>Freguesia</th>
                 <th>Latitude</th>
                 <th>Longitude</th>
-                <th>Eliminar</th>
                 <?php
                 if (isset($_SESSION['perms']) and $_SESSION['perms'] == 1) {
                     ?>

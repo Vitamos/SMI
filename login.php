@@ -4,22 +4,21 @@ include_once('db.php');
 
 if (isset($_POST['user'])) {
     if (empty($_POST['user']) || empty($_POST['pass'])) {
-        $error = "Username or Password is invalid";
+        $error = "username ou password invalida";
         echo $error;
     } else {
         $user = $_POST['user'];
         $pass = $_POST['pass'];
-        if (!login($user, $pass)){
-            $error = "Username or Password is invalid";
+        if (!login($user, $pass)) {
+            $error = "username ou password invalida";
             echo $error;
         }
-
     }
 }
 
 if (!isset($_SESSION['user'])) {
     ?>
- <button onclick='showPage("content","user_register.php")'>Registar</button>
+    <button onclick='showPage("content", "user_register.php")'>Registar</button>
     <form method = "post" action = "">
         Username: <input type = "text" name = "user"/><br/>
         Password: <input type = "password" name = "pass"/><br/>
