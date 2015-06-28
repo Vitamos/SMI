@@ -12,9 +12,13 @@
                 <th>Latitude</th>
                 <th>Longitude</th>
                 <?php
-                if (isset($_SESSION['perms']) and $_SESSION['perms'] == 1) {
+                if (!isset($_SESSION['perms'])) {
+                    session_start();
+                }
+                if ($_SESSION['perms'] == 1) {
                     echo "<th>Eliminar</th>";
-                     } ?>
+                }
+                ?>
             </tr>
             <?php
             include_once ("db.php");
@@ -24,20 +28,20 @@
             if ($result->num_rows > 0) {
                 // output data of each row
                 while ($row = $result->fetch_assoc()) {
-                 ?> <tr onclick='showPage("content", "post_getPost.php?idAnuncio=<?php echo $row['idAnuncio']; ?>")'> <?php
-                   //echo "<tr>";
-                    foreach ($fields as $field) {
-                           echo "<td>" .  $row[$field]  ."</td>"; 
+                    ?> <tr onclick='showPage("result", "post_getPost.php?idAnuncio=<?php echo $row['idAnuncio']; ?>")'> <?php
+                        //echo "<tr>";
+                        foreach ($fields as $field) {
+                            echo "<td>" . $row[$field] . "</td>";
+                        }
+                        if (isset($_SESSION['perms']) and $_SESSION['perms'] == 1) {
+                            echo "<td><button >x</button></td>";
+                        }
+                        echo "</tr>";
                     }
-                    if (isset($_SESSION['perms']) and $_SESSION['perms'] == 1) {
-                        echo "<td><button >x</button></td>";
-                    }
-                    echo "</tr>";
+                } else {
+                    echo "0 results";
                 }
-            } else {
-                echo "0 results";
-            }
-            ?>
+                ?>
         </table>
     </body>
 </html>

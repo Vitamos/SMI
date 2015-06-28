@@ -5,7 +5,7 @@ body{
     padding: 0;
     font-family: 'Lato', sans-serif;
     height:100%;
-    
+
 }
 /* palette
     castanho 2B2301
@@ -23,7 +23,7 @@ header{
 
 #logo{
     float:left;
-    
+
 }
 
 #content{
@@ -75,4 +75,8 @@ table td {
     background: #E2D893;
     color: black;
     padding: 10px;
+}
+
+table tr :hover{
+    cursor :pointer;
 }

@@ -1,14 +1,11 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-        <script type="text/javascript" src="scripts.js"></script>
+        
         <meta charset="UTF-8">
         <title>asdf</title>
     </head>
     <body> 
         <?php
-        session_start();
         ?>
         <header>
             <a href="index2.php"><img src="icon.png" alt="icon" id='logo'></a>
