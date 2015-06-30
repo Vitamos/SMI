@@ -1,16 +1,16 @@
 
 <?php
 include_once('db.php');
-
+session_start();
 if (isset($_POST['user'])) {
     if (empty($_POST['user']) || empty($_POST['pass'])) {
-        $error = "username ou password invalida";
+        $error = "ERRO : username ou password invalida";
         echo $error;
     } else {
         $user = $_POST['user'];
         $pass = $_POST['pass'];
         if (!login($user, $pass)) {
-            $error = "username ou password invalida";
+            $error = "ERRO : username ou password invalida";
             echo $error;
         }
     }
@@ -27,7 +27,7 @@ if (!isset($_SESSION['user'])) {
 
     <?php
 } else {
-    echo 'Hello ' . $_SESSION['user'];
+    echo 'Bem vindo ' . $_SESSION['user'];
     ?>
     <form method="post" action="logout.php">
         <input type="submit" value="Logout"/>

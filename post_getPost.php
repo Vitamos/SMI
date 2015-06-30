@@ -1,9 +1,22 @@
 <html>
+    <head>               
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="scripts.js"></script>
+    </head>
     <body>
         <?php
         include_once ("db.php");
-        if (!isset($_SESSION['perms'])) {
-            session_start();
+        session_start();
+        if (isset($_POST['submit'])) {
+            $delquery = "DELETE FROM anuncios WHERE idAnuncio =" . $_POST['id'];
+            query($delquery);
+            ?> 
+            <script>
+                alert("Removido com sucesso!");
+                opener.showPage("content", "post_posts.php");
+                self.close();</script> <?php
         }
         $fields = ["idAnuncio", "titulo", "preco", "assoalhadas", "concelho", "distrito", "freguesia", "latitude", "longitude"];
         $query = "SELECT * FROM anuncios WHERE idAnuncio='" . $_GET['idAnuncio'] . "';";
@@ -16,13 +29,17 @@
             foreach ($fields as $field) {
                 echo "<li>" . $row[$field] . "</li>";
             }
-            if (isset($_SESSION['perms']) and $_SESSION['perms'] == 1) {
-                echo "<li><button>Eliminar Anuncio</button></li>";
+            if (isset($_SESSION['perms']) and $_SESSION['perms'] <= 2) {
+                ?> <li><form action="" method='POST'>
+                    <input type='hidden' name='id' value='<?php echo $row['idAnuncio'] ?>'>
+                    <input type='submit' name ='submit' value='Eliminar' />
+                </form> <?php
             }
             echo "</ul>";
         }
         ?>
-        <button onclick='showPage("result", "post_getPosts.php")'>Back</button>
+        <section id="map"></section>
+        <script>            window.onload = initialize(<?php echo $row['latitude']; ?>, <?php echo $row['longitude']; ?>);</script>
     </body>
 </html>
 

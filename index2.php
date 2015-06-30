@@ -1,14 +1,12 @@
 <html>
     <head>
-        
         <meta charset="UTF-8">
-        <title>asdf</title>
     </head>
     <body> 
         <?php
         ?>
         <header>
-            <a href="index2.php"><img src="icon.png" alt="icon" id='logo'></a>
+            <a href="index.php"><img src="icon.png" alt="icon" id='logo'></a>
             <section id='stuff'>
                 <?php
                 include_once('login.php');

@@ -10,7 +10,7 @@
     <body>
 
         <?php
-        
+        include_once ("db.php");
         if (!file_exists('conf.xml')) {
             include('first.php');
         } else {
