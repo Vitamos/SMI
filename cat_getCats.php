@@ -1,12 +1,9 @@
-<h3>Lista de Utilizadores</h3>
+<h3>Lista de Categorias</h3>
 <table>
     <tr>
-        <th>User ID</th>
-        <th>Username</th>
-        <th>E-mail</th>
-        <th>Telefone</th>
-        <th>Telemovel</th>
-        <th>Permissao</th>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Tipo</th>
         <?php
         if (!isset($_SESSION)) {
             session_start();
@@ -17,8 +14,8 @@
     </tr>
     <?php
     include_once ("db.php");
-    $fields = ["idUser", "username", "email", "telefone", "telemovel", "permissao"];
-    $query = "SELECT * FROM users";
+    $fields = ["idCat", "nome", "primario"];
+    $query = "SELECT * FROM categorias";
     $result = query($query);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -29,8 +26,8 @@
             if (isset($_SESSION['perms']) and $_SESSION['perms'] == 1) {
                 ?>
                 <td>
-                    <form action="user_users.php" method='POST'>
-                        <input type='hidden' name='id' value='<?php echo $row['idUser'] ?>'>
+                    <form action="cat_cats.php" method='POST'>
+                        <input type='hidden' name='id' value='<?php echo $row['idCat'] ?>'>
                         <input type='submit' name ='delete' value='Eliminar' />
                     </form> 
                 </td>

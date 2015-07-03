@@ -1,16 +1,28 @@
 <?php
+$config = simplexml_load_file('conf.xml');
+$host = $config->host;
+$db = $config->db;
+$user = $config->user;
+$pass = $config->pass;
+$connection = new mysqli($host, $user, $pass, $db);
 
 function query($query) {
-    $config = simplexml_load_file('conf.xml');
-    $host = $config->host;
-    $port = $config->port;
-    $db = $config->db;
-    $user = $config->user;
-    $pass = $config->pass;
-    $connection = new mysqli($host, $user, $pass, $db);
+    global $connection;
     $result = $connection->query($query);
-    $connection->close();
     return $result;
+}
+
+function getID() {
+    global $connection;
+    return mysqli_insert_id($connection);
+}
+
+function Delete($dirPath) {
+    $dirPath = $dirPath; 
+    foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dirPath, FilesystemIterator::SKIP_DOTS), RecursiveIteratorIterator::CHILD_FIRST) as $path) {
+        $path->isDir() && !$path->isLink() ? rmdir($path->getPathname()) : unlink($path->getPathname());
+    }
+    rmdir($dirPath);
 }
 
 function login($username, $password) {
@@ -22,7 +34,6 @@ function login($username, $password) {
                 $_SESSION['user'] = $username;
                 $_SESSION['id'] = $row['idUser'];
                 $_SESSION['perms'] = $row['permissao'];
-                session_write_close();
                 return true;
             }
         }

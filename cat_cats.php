@@ -22,9 +22,7 @@
         include('menu.php');
         include_once ("db.php");
         if (isset($_POST['delete'])) {
-            $delInts = "DELETE FROM users_interesses WHERE userID=" . $_POST['id'];
-            query($delInts);
-            $delquery = "DELETE FROM users WHERE idUser =" . $_POST['id'];
+            $delquery = "DELETE FROM categorias WHERE idCat =" . $_POST['id'];
             query($delquery);
             ?> 
             <script>
@@ -32,14 +30,14 @@
             </script> <?php }
         ?>
         <section id = 'content'>
-            <h1>Utilizadores</h1>
+            <h1>Categorias</h1>
             <hr>
-            <button onclick='window.open("user_register.php", "", "width=640", "height=480")' >   <h3>  Adicionar Utilizador</h3></button>
+            <button onclick='window.open("cat_register.php", "", "width=640", "height=480")' >   <h3>  Adicionar Utilizador</h3></button>
             <hr>
-            <h3>Pesquisar Utilizador</h3>
+            <h3>asdf</h3>
             <hr>
             <section id="result">
-                <?php include_once ('user_getUsers.php'); ?>
+                <?php include_once ('cat_getCats.php'); ?>
             </section>
         </section>
     </body>

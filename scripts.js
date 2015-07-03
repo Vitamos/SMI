@@ -14,6 +14,7 @@ function showPage(id, page, lat, long) {
             initialize(lat, long);
         }
     };
+    
     xmlhttp.open("GET", page, true);
     xmlhttp.send();
 }

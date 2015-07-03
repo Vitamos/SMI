@@ -82,4 +82,14 @@ table tr:hover td{
 #map {
     width: 500px;
     height: 400px;
+    background: black;
+}
+
+img:hover{
+    cursor: pointer;
+}
+
+nav li a {
+    text-decoration: none;
+    color: inherit;
 }

@@ -1,35 +1,38 @@
 <html>
-    <head>               
+    <head> 
+        <meta charset="UTF-8">
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="scripts.js"></script>
     </head>
     <?php
+    include_once 'db.php';
     session_start();
-    include_once("db.php");
     if (isset($_POST['submit'])) {
         $query = "INSERT INTO anuncios" . " VALUES (NULL,'" . $_POST['titulo'] . "','" . $_POST['descricao'] . "','" . $_POST['preco'] .
-                "','" . $_POST['assoalhadas'] . "','" . $_POST['concelho'] . "','" . $_POST['distrito'] . "','" . $_POST['freguesia'] . "','" . $_POST['latitude'] . "','" . $_POST['longitude'] . "','" . str_replace(' ', '', $_POST['titulo']) . "','" . $_SESSION['id'] . "');";
-        //FALTA QUERY PARA ADICIONAR CATEGORIAS
+                "','" . $_POST['assoalhadas'] . "','" . $_POST['concelho'] . "','" . $_POST['distrito'] . "','" . $_POST['freguesia'] . "','" . $_POST['latitude'] . "','" . $_POST['longitude'] . "','" . $_SESSION['id'] . "');";
+        query($query);
+        $id = getID();
+        foreach ($_POST['cats'] as $cat) {
+            $query = "INSERT INTO anuncios_categorias VALUES ('" . $id . "','" . $cat . "');";
+            query($query);
+        }
         $zip = new ZipArchive;
         $res = $zip->open($_FILES['media']['tmp_name']);
         if ($res === TRUE) {
-            $zip->extractTo('posts/ '. str_replace(' ', '', $_POST['titulo']));
+            $zip->extractTo(__DIR__ .'\posts\\' . $id);
             $zip->close();
-            echo 'woot!';
-        } else {
-            echo 'doh!';
         }
-        query($query);
         ?> <script>
-            // alert("Adicionado com sucesso!");
-            opener.showPage("content", "post_posts.php");
-            //self.close();
+            alert("Adicionado com sucesso!");
+            opener.showPage("result", "post_getPosts.php");
+            self.close();
         </script>
     <?php }
     ?>
     <body>
+        <h1>Adicionar Anuncio</h1>
         <form action='' method="POST" enctype="multipart/form-data">
             Titulo: <input type="text" name="titulo"><br/>
             Descricao: <input type="text" name="descricao"><br/>

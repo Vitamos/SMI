@@ -7,16 +7,24 @@
     </head>
     <body>
         <?php
+        if (!isset($_SESSION)) {
+            session_start();
+        }
         include_once ("db.php");
-        session_start();
         if (isset($_POST['submit'])) {
+            $delCats = "DELETE FROM anuncios_categorias WHERE anuncioID=" . $_POST['id'];
+            query($delCats);
             $delquery = "DELETE FROM anuncios WHERE idAnuncio =" . $_POST['id'];
             query($delquery);
+            $dir = 'posts\\' . $_POST['id'];
+            //echo $dir;
+            Delete($dir);
             ?> 
             <script>
-                alert("Removido com sucesso!");
-                opener.showPage("content", "post_posts.php");
-                self.close();</script> <?php
+               alert("Removido com sucesso!");
+                opener.showPage("result", "post_getPosts.php");
+                self.close();
+            </script> <?php
         }
         $fields = ["idAnuncio", "titulo", "preco", "assoalhadas", "concelho", "distrito", "freguesia", "latitude", "longitude"];
         $query = "SELECT * FROM anuncios WHERE idAnuncio='" . $_GET['idAnuncio'] . "';";
