@@ -6,7 +6,6 @@
 <form action="user_setInteresses.php" method="POST">
     <?php
     include_once 'db.php';
-    session_start();
     $notselected = query("SELECT DISTINCT * FROM categorias WHERE idCat NOT IN (SELECT catID FROM users_interesses WHERE userID=2)");
     $selected = query("SELECT DISTINCT * FROM categorias WHERE idCat IN (SELECT catID FROM users_interesses WHERE userID=2)");
     echo "<h1>Interesses</h1>";

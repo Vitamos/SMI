@@ -3,7 +3,6 @@
     <body>
         <?php
         include_once 'db.php';
-        session_start();
 
         query("DELETE FROM users_interesses WHERE userID=" . $_SESSION['id']);
         foreach ($_POST['cats'] as $cat) {

@@ -1,3 +1,7 @@
+<?php 
+session_start();
+include_once('db.php');
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -9,16 +13,14 @@
     </head>
     <body> 
         <header>
-            <a href="index2.php"><img src="icon.png" alt="icon" id='logo'></a>
+            <a ><img src="icon.png" alt="icon" id='logo'></a>
             <section id='stuff'>
-                <?php
-                session_start();
-                include_once('db.php');
-                include('login.php');
+                                <?php
+                    include('login.php');
                 ?>
             </section>
         </header>                    
-        <?php include('menu.php'); ?>
+        <?php include_once('menu.php'); ?>
         <section id = 'content'>
             <h1>Anuncios</h1>
             <hr>
@@ -27,7 +29,7 @@
             <h3>Pesquisar Anuncio</h3>
             <hr>
             <section id="result"> 
-                <?php include_once ('post_getPosts.php'); ?>
+        <?php include_once ('post_getPosts.php'); ?>
             </section>
         </section>
     </body>

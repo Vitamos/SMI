@@ -1,3 +1,7 @@
+<?php
+session_start();
+include_once('db.php');
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -9,18 +13,15 @@
     </head>
     <body> 
         <header>
-            <a href="index2.php"><img src="icon.png" alt="icon" id='logo'></a>
+            <a><img src="icon.png" alt="icon" id='logo'></a>
             <section id='stuff'>
                 <?php
-                session_start();
-                include_once('db.php');
-                include('login.php');
+                    include('login.php');
                 ?>
             </section>
         </header>                    
         <?php
-        include('menu.php');
-        include_once ("db.php");
+        include_once('menu.php');
         if (isset($_POST['delete'])) {
             $delquery = "DELETE FROM categorias WHERE idCat =" . $_POST['id'];
             query($delquery);

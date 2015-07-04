@@ -6,7 +6,6 @@
         <th>Tipo</th>
         <?php
         if (!isset($_SESSION)) {
-            session_start();
         }
         if (isset($_SESSION['perms']) and $_SESSION['perms'] == 1) {
             ?>

@@ -8,7 +8,7 @@
     </head>
     <?php
     include_once 'db.php';
-    session_start();
+
     if (isset($_POST['submit'])) {
         $query = "INSERT INTO anuncios" . " VALUES (NULL,'" . $_POST['titulo'] . "','" . $_POST['descricao'] . "','" . $_POST['preco'] .
                 "','" . $_POST['assoalhadas'] . "','" . $_POST['concelho'] . "','" . $_POST['distrito'] . "','" . $_POST['freguesia'] . "','" . $_POST['latitude'] . "','" . $_POST['longitude'] . "','" . $_SESSION['id'] . "');";

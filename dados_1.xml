@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<data>
+    <users>
+        <user>
+            <username></username>
+            <password></password>
+            <email></email>
+            <telefone></telefone>
+            <telemovel></telemovel>
+            <permissao></permissao>    
+        </user>
+    </users>
+    <posts>
+        <post>
+            <titulo></titulo>
+            <descricao></descricao>
+            <preco></preco>
+            <assoalhadas></assoalhadas>
+            <concelho></concelho>
+            <distrito></distrito>
+            <freguesia></freguesia>
+            <latitude></latitude>
+            <longitude></longitude>
+            <autor></autor>
+        </post>
+    </posts>
+</data>

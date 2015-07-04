@@ -10,7 +10,6 @@
             }
             if ($permission <= 1) {
                 echo("<li><a href='user_users.php'>Gerir Utilizadores</a></li>");
-                
             }
         }
         ?>

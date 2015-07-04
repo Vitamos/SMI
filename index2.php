@@ -1,3 +1,5 @@
+<?php session_start();
+include_once('db.php'); ?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -9,12 +11,10 @@
     </head>
     <body> 
         <header>
-            <a href=""><img src="icon.png" alt="icon" id='logo'></a>
+            <a ><img src="icon.png" alt="icon" id='logo'></a>
             <section id='stuff'>
                 <?php
-                session_start();
-                include_once('db.php');
-                include('login.php');
+                    include('login.php');
                 ?>
             </section>
         </header>                    

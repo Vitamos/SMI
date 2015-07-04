@@ -7,7 +7,6 @@ if (isset($_POST['submit'])) {
 <form action="" method="POST">
     Nome <input type="text" name="nome"></br>
     <?php
-    session_start();
     if ($_SESSION['perms'] == 1) {
         ?>
         Primario<input type="radio" name="primario" value="1">

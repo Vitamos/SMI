@@ -1,4 +1,5 @@
 <?php
+
 $config = simplexml_load_file('conf.xml');
 $host = $config->host;
 $db = $config->db;
@@ -18,7 +19,7 @@ function getID() {
 }
 
 function Delete($dirPath) {
-    $dirPath = $dirPath; 
+    $dirPath = $dirPath;
     foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dirPath, FilesystemIterator::SKIP_DOTS), RecursiveIteratorIterator::CHILD_FIRST) as $path) {
         $path->isDir() && !$path->isLink() ? rmdir($path->getPathname()) : unlink($path->getPathname());
     }
@@ -31,6 +32,7 @@ function login($username, $password) {
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             if ($row['username'] == $username && $row['password'] == $password) {
+                
                 $_SESSION['user'] = $username;
                 $_SESSION['id'] = $row['idUser'];
                 $_SESSION['perms'] = $row['permissao'];
