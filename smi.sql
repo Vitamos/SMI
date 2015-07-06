@@ -26,17 +26,27 @@ CREATE TABLE IF NOT EXISTS anuncios(
 	descricao VARCHAR(200) NOT NULL,
 	preco DECIMAL(7,0) NOT NULL,
 	assoalhadas VARCHAR(3),
-	concelho VARCHAR(15) NOT NULL,
-	distrito VARCHAR(15),
-	freguesia VARCHAR(15),
-	latitutde FLOAT( 10, 6 ) NOT NULL , /* coordenadas de acordo com google*/
+	concelho INT NOT NULL,
+	distrito INT NOT NULL,
+	freguesia INT NOT NULL,
+	latitude FLOAT( 10, 6 ) NOT NULL , /* coordenadas de acordo com google*/
 	longitude FLOAT( 10, 6 ) NOT NULL,  /* https://developers.google.com/maps/articles/phpsqlsearch_v3?csw=1 */
 	mediapath VARCHAR(60) NOT NULL,
 	autor INT NOT NULL,
 	PRIMARY KEY (idAnuncio),
 	CONSTRAINT fk_autor
 		FOREIGN KEY (autor)
-		REFERENCES users(idUser)
+		REFERENCES users(idUser),
+	CONSTRAINT fk_dist
+		FOREIGN KEY (distrito)
+		REFERENCES distritos(idD),
+	CONSTRAINT fk_conc
+		FOREIGN KEY (concelho)
+		REFERENCES concelhos(idC),
+	CONSTRAINT fk_freg
+		FOREIGN KEY (freguesia)
+		REFERENCES freguesias(idF)
+
 );
 
 CREATE TABLE IF NOT EXISTS categorias(
@@ -72,5 +82,32 @@ CREATE TABLE IF NOT EXISTS anuncios_categorias(
 		REFERENCES categorias(idCat)
 );
 
+CREATE TABLE IF NOT EXISTS distritos(
+    idD INT NOT NULL,
+    nome VARCHAR(50) NOT NULL,
+    PRIMARY KEY (idD));
 
+CREATE TABLE IF NOT EXISTS concelhos(
+    idDistrito INT NOT NULL,
+    idC INT NOT NULL,
 
+    nome VARCHAR(50) NOT NULL,
+    PRIMARY KEY(idC, idDistrito),
+    CONSTRAINT fk_distrito
+            FOREIGN KEY (idDistrito)
+            REFERENCES distritos(idD)
+);
+   
+CREATE TABLE IF NOT EXISTS freguesias(
+    idDistrito INT NOT NULL,
+    idConcelho INT NOT NULL,
+    idF INT NOT NULL,
+    nome VARCHAR(50) NOT NULL,
+    PRIMARY KEY(idF, idDistrito, idConcelho),
+    CONSTRAINT fk_distrito2
+            FOREIGN KEY (idDistrito)
+            REFERENCES distritos(idD),
+    CONSTRAINT fk_concelho
+            FOREIGN KEY (idConcelho)
+            REFERENCES concelhos(idC)
+);

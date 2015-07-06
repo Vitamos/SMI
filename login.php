@@ -37,6 +37,8 @@ if (!isset($_SESSION['user'])) {
 } else {
     echo 'Bem vindo ' . $_SESSION['user'];
     ?>
+    </br>
+    <button onclick='window.open("user_selectInteresses.php", "", "width=320, height=240")' >Seleccionar Interesses</button>
     <form method="post" action="logout.php">
         <input type="submit" value="Logout"/>
     </form>

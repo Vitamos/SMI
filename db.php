@@ -6,7 +6,7 @@ $db = $config->db;
 $user = $config->user;
 $pass = $config->pass;
 $connection = new mysqli($host, $user, $pass, $db);
-
+$connection->set_charset("utf8");
 function query($query) {
     global $connection;
     $result = $connection->query($query);

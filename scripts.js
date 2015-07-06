@@ -35,3 +35,28 @@ function initialize(lat, long) {
     });
 }
 
+
+
+function getDistrito(){
+    var e = document.getElementById("distrito");
+    var id = e.options[e.selectedIndex].value;
+    console.log(id);
+    return id;  
+}
+
+function getConcelho(){
+    var e = document.getElementById("concelho");
+    var id = e.options[e.selectedIndex].value;
+    console.log(id);
+    return id;
+    
+}
+
+function changeDistrito(){
+    showPage("concelho", "concelhos.php?idD="+getDistrito());
+    document.getElementById("freguesia").innerHTML = "<select id='freguesia'></select>";
+}
+
+function changeConcelho(){
+    showPage("freguesia", "freguesias.php?idD="+getDistrito()+"&idC="+getConcelho());
+}

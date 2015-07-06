@@ -2,6 +2,7 @@
 include_once('db.php'); ?>
 <html>
     <head>
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <meta charset="UTF-8">
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -11,7 +12,7 @@ include_once('db.php'); ?>
     </head>
     <body> 
         <header>
-            <a ><img src="icon.png" alt="icon" id='logo'></a>
+            <a href=""><img src="icon.png" alt="icon" id='logo'></a>
             <section id='stuff'>
                 <?php
                     include('login.php');

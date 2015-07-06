@@ -10,6 +10,7 @@
             }
             if ($permission <= 1) {
                 echo("<li><a href='user_users.php'>Gerir Utilizadores</a></li>");
+                echo("<li><a onclick='showPage(\"content\", \"importform.php\")'>Importar</a></li>");
             }
         }
         ?>

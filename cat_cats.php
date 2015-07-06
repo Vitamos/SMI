@@ -4,6 +4,7 @@ include_once('db.php');
 ?>
 <html>
     <head>
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <meta charset="UTF-8">
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -13,7 +14,7 @@ include_once('db.php');
     </head>
     <body> 
         <header>
-            <a><img src="icon.png" alt="icon" id='logo'></a>
+            <a href="index2.php"><img src="icon.png" alt="icon" id='logo'></a>
             <section id='stuff'>
                 <?php
                     include('login.php');
@@ -33,9 +34,8 @@ include_once('db.php');
         <section id = 'content'>
             <h1>Categorias</h1>
             <hr>
-            <button onclick='window.open("cat_register.php", "", "width=640", "height=480")' >   <h3>  Adicionar Utilizador</h3></button>
+            <button onclick='window.open("cat_register.php", "", "width=640, height=480")'>   <h3>  Adicionar Categoria</h3></button>
             <hr>
-            <h3>asdf</h3>
             <hr>
             <section id="result">
                 <?php include_once ('cat_getCats.php'); ?>

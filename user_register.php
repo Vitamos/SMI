@@ -1,5 +1,6 @@
 <html>
     <head> 
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <meta charset="UTF-8">
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -8,7 +9,7 @@
     </head>
     <h1>Registo de Utilizador</h1>
     <?php
-
+    session_start();
     include_once 'db.php';
     if (isset($_POST['submit'])) {
         $query = "INSERT INTO users" . " VALUES (NULL,'" . $_POST['user'] . "','" . $_POST['pass'] . "','" . $_POST['email'] . "','" . $_POST['tlf'] . "','" . $_POST['tlm'] . "','" . $_POST['perms'] . "');";
