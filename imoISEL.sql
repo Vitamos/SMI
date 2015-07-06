@@ -4,6 +4,35 @@ CREATE TABLE IF NOT EXISTS niveis_utilizacao(
 	tipo VARCHAR(15) NOT NULL,
 	PRIMARY KEY (idUtil)
 );
+CREATE TABLE IF NOT EXISTS distritos(
+    idD INT NOT NULL,
+    nome VARCHAR(50) NOT NULL,
+    PRIMARY KEY (idD));
+
+CREATE TABLE IF NOT EXISTS concelhos(
+    idDistrito INT NOT NULL,
+    idC INT NOT NULL,
+
+    nome VARCHAR(50) NOT NULL,
+    PRIMARY KEY(idC, idDistrito),
+    CONSTRAINT fk_distrito
+            FOREIGN KEY (idDistrito)
+            REFERENCES distritos(idD)
+);
+   
+CREATE TABLE IF NOT EXISTS freguesias(
+    idDistrito INT NOT NULL,
+    idConcelho INT NOT NULL,
+    idF INT NOT NULL,
+    nome VARCHAR(50) NOT NULL,
+    PRIMARY KEY(idF, idDistrito, idConcelho),
+    CONSTRAINT fk_distrito2
+            FOREIGN KEY (idDistrito)
+            REFERENCES distritos(idD),
+    CONSTRAINT fk_concelho
+            FOREIGN KEY (idConcelho)
+            REFERENCES concelhos(idC)
+);
 
 CREATE TABLE IF NOT EXISTS users(
 	idUser INT NOT NULL AUTO_INCREMENT,
@@ -82,32 +111,3 @@ CREATE TABLE IF NOT EXISTS anuncios_categorias(
 		REFERENCES categorias(idCat)
 );
 
-CREATE TABLE IF NOT EXISTS distritos(
-    idD INT NOT NULL,
-    nome VARCHAR(50) NOT NULL,
-    PRIMARY KEY (idD));
-
-CREATE TABLE IF NOT EXISTS concelhos(
-    idDistrito INT NOT NULL,
-    idC INT NOT NULL,
-
-    nome VARCHAR(50) NOT NULL,
-    PRIMARY KEY(idC, idDistrito),
-    CONSTRAINT fk_distrito
-            FOREIGN KEY (idDistrito)
-            REFERENCES distritos(idD)
-);
-   
-CREATE TABLE IF NOT EXISTS freguesias(
-    idDistrito INT NOT NULL,
-    idConcelho INT NOT NULL,
-    idF INT NOT NULL,
-    nome VARCHAR(50) NOT NULL,
-    PRIMARY KEY(idF, idDistrito, idConcelho),
-    CONSTRAINT fk_distrito2
-            FOREIGN KEY (idDistrito)
-            REFERENCES distritos(idD),
-    CONSTRAINT fk_concelho
-            FOREIGN KEY (idConcelho)
-            REFERENCES concelhos(idC)
-);

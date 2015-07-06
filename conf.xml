@@ -2,7 +2,6 @@
 <conf>
   <db>smi</db>
   <host>localhost</host>
-  <port>3306</port>
   <user>smi</user>
   <pass>segredo</pass>
 </conf>

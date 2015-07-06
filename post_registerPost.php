@@ -36,17 +36,17 @@
             ?> <script>
                     alert("Adicionado com sucesso!");
                     opener.showPage("result", "post_getPosts.php");
-                    // self.close();
+                    self.close();
             </script>
         <?php }
         ?>
         <h1>Adicionar Anuncio</h1>
-        <form action='' method="POST" enctype="multipart/form-data">
-            Titulo: <input type="text" name="titulo"><br/>
-            Descricao: <input type="text" name="descricao"><br/>
-            Preço: <input type="text" name="preco"><br/>
-            Assoalhadas: <input type="text" name="assoalhadas"><br/>
-            Distrito: <select name="distrito" id="distrito" onchange='changeDistrito();'>
+        <form action='' method="POST" enctype="multipart/form-data" onsubmit="return validPost(this)">
+            Titulo: <input type="text" name="titulo" required><br/>
+            Descricao: <input type="text" name="descricao" required><br/>
+            Preço: <input type="text" name="preco" required><br/>
+            Assoalhadas: <input type="text" name="assoalhadas" required><br/>
+            Distrito: <select name="distrito" id="distrito" onchange='changeDistrito();' required>
                 <option selected="selected" disabled="disabled">Seleccionar</option>
                 <?php
                 $distritos = query("SELECT * from distritos");
@@ -55,10 +55,10 @@
                 }
                 ?>
             </select></br>
-            Concelho: <select name="concelho" id="concelho" onchange='changeConcelho();'></select></br>
-            Freguesia: <select name="freguesia" id="freguesia"></select></br>
-            Latitude: <input type="text" name="latitude"><br/>
-            Longitude: <input type="text" name="longitude"><br/>
+            Concelho: <select name="concelho" id="concelho" onchange='changeConcelho();' required></select></br>
+            Freguesia: <select name="freguesia" id="freguesia" required></select></br>
+            Latitude: <input type="text" name="latitude" required><br/>
+            Longitude: <input type="text" name="longitude" required><br/>
             Media (zip) : <input type="file" name="media"><br/>
             <?php
             $result = query("SELECT * from categorias");

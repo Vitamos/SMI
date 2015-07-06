@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     query("INSERT INTO categorias VALUES(NULL, '" . $_POST['nome'] . "','" . $_POST['primario'] . "');");
 }
 ?>
-<form action="" method="POST">
+<form action="" method="POST" onsubmit="return validCat(this)">
     Nome <input type="text" name="nome"></br>
     <?php
     if ($_SESSION['perms'] == 1) {

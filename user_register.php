@@ -15,19 +15,19 @@
         $query = "INSERT INTO users" . " VALUES (NULL,'" . $_POST['user'] . "','" . $_POST['pass'] . "','" . $_POST['email'] . "','" . $_POST['tlf'] . "','" . $_POST['tlm'] . "','" . $_POST['perms'] . "');";
         query($query);
         ?> <script>
-            opener.showPage("result", "user_getUsers.php");
-         alert("Adicionado com sucesso!");
-            self.close();
+                opener.location.reload();
+                alert("Registado com sucesso!");
+                self.close();
         </script>
     <?php }
     ?>
     <body>
-        <form method="POST" action="">
-            Username: <input type="text" name="user"><br/>
-            Password: <input type="text" name="pass"><br/>
-            Email: <input type="text" name="email"><br/>
-            Telefone: <input type="text" name="tlf"><br/>
-            Telemovel: <input type="text" name="tlm"><br/>
+        <form method="POST" action="" onsubmit="return validUser(this)">
+            Username (3 a 12 caracteres) : <input type="text" name="user" required><br/>
+            Password (min 6 caracteres): <input type="text" name="pass" required><br/>
+            Email: <input type="text" name="email" required><br/>
+            Telefone: <input type="text" name="tlf" required><br/>
+            Telemovel: <input type="text" name="tlm" required><br/>
             <?php
             if (isset($_SESSION['perms']) && $_SESSION['perms'] == 1) {
                 echo "Permissao: <select name=\"perms\">";
