@@ -33,9 +33,10 @@
             exit();
         }
         ?>
-        <h1>Bem vindo ao CMS</h1>
+        <h1>Bem vindo ao imoISEL</h1>
         <h2>Crie uma base de dados no SQL e introduza aqui os dados de acesso</h2>
-        <h3>A conta de administrador será a mesma que a da base de dados</h3>
+        <h3>A primeira conta de administrador é (admin,admin).</h3>
+        <h3>Deve começar por utilizar essa para criar uma nova com os dados desejados e apagar a inicial</h3>
         <form method="post" action="">
             DB: <input type="text" name="db"><br/>
             Host: <input type="text" name="host"><br/>
