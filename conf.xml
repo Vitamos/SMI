@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<conf>
-  <db>smi</db>
-  <host>localhost</host>
-  <user>smi</user>
-  <pass>segredo</pass>
-</conf>

@@ -10,7 +10,9 @@
     </head>
     <body>
         <?php
+        
         if (isset($_POST['submit'])) {
+            set_time_limit(0);
             $xml = new DOMDocument();
             $xml->preserveWhiteSpace = false;
             $xml->formatOutput = true;
@@ -26,8 +28,7 @@
             $xml->normalizeDocument();
             $xml->save('conf.xml');
             include_once 'db.php';
-            $query = "INSERT INTO users" . " VALUES (NULL,'" . $_POST['user'] . "','" . $_POST['pass'] . "','" . "admin@imoisel.com" . "','" . "000000000" . "','" . "000000000" . "','" . "000000000" . "');";
-            query($query);
+            start();
             header('Location: index.php');
             exit();
         }

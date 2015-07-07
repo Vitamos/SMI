@@ -35,8 +35,6 @@ include_once('db.php');
             <h1>Categorias</h1>
             <hr>
             <button onclick='window.open("cat_register.php", "", "width=640, height=480")'>   <h3>  Adicionar Categoria</h3></button>
-            <hr>
-            <hr>
             <section id="result">
                 <?php include_once ('cat_getCats.php'); ?>
             </section>

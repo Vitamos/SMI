@@ -37,9 +37,6 @@ include_once('db.php');
             <h1>Utilizadores</h1>
             <hr>
             <button onclick='window.open("user_register.php", "", "width=640, height=480")' >   <h3>  Adicionar Utilizador</h3></button>
-            <hr>
-            <h3>Pesquisar Utilizador</h3>
-            <hr>
             <section id="result">
                 <?php include_once ('user_getUsers.php'); ?>
             </section>

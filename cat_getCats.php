@@ -6,6 +6,7 @@
         <th>Tipo</th>
         <?php
         if (!isset($_SESSION)) {
+            
         }
         if (isset($_SESSION['perms']) and $_SESSION['perms'] == 1) {
             ?>
@@ -13,6 +14,9 @@
     </tr>
     <?php
     include_once ("db.php");
+    if (!isset($_SESSION['perms'])) {
+        session_start();
+    }
     $fields = ["idCat", "nome", "primario"];
     $query = "SELECT * FROM categorias";
     $result = query($query);

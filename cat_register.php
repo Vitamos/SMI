@@ -9,20 +9,26 @@
 session_start();
 include_once 'db.php';
 if (isset($_POST['submit'])) {
-    query("INSERT INTO categorias VALUES(NULL, '" . $_POST['nome'] . "','" . $_POST['primario'] . "');");
-}
-?>
-<form action="" method="POST" onsubmit="return validCat(this)">
-    Nome <input type="text" name="nome"></br>
-    <?php
-    if ($_SESSION['perms'] == 1) {
-        ?>
-        Primario<input type="radio" name="primario" value="1" checked>
-        Secundario<input type="radio" name="primario" value="0">
-    <?php } else {
-        ?>
-        <input type="hidden" name="primario" value="0">
-    <?php } ?>
+    query("INSERT INTO categorias VALUES(NULL, '" . $_POST['nome'] . "'," . $_POST['primario'][0] . ");");
+    ?>
+    <script>
+        alert("Adicionado com sucesso!");
+        opener.location.reload();
+        self.close();
+    </script>    
+    <?php }
+    ?>
+    <form action="" method="POST" onsubmit="return validCat(this)">
+        Nome <input type="text" name="nome"></br>
+        <?php
+        if ($_SESSION['perms'] == 1) {
+            ?>
+            Primario<input type="radio" name="primario[]" value="1" checked>
+            Secundario<input type="radio" name="primario[]" value="0">
+        <?php } else {
+            ?>
+            <input type="hidden" name="primario" value="0">
+        <?php } ?>
     <input type="submit" name="submit">
 </form>
 
