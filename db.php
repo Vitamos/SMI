@@ -17,7 +17,7 @@ function query($query) {
 function start() {
     global $connection;
     $path = $_SERVER['DOCUMENT_ROOT'];
-    $sql_filename = 'SMI_Projecto/imoISEL.sql';
+    $sql_filename = '/SMI/imoISEL.sql';
     $sql_contents = file_get_contents($path . $sql_filename);
     $sql_contents = explode(";", $sql_contents);
     foreach ($sql_contents as $query) {
